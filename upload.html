@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>断点续传文件</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link href="css/upload.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="./upload.js"></script>
+
+
+</head>
+
+
+<body >
+
+<div id="good"></div>
+
+<script>
+/**********
+ * 回传到后台参数
+ * startSize int，分片开始位置，如果不是断点续传，则为null
+ * endSize int ,分片结束位置，如果不是断点续传，则为null
+ * fileName 字符型 文件名称
+ * file  文件类型，文件/分片
+ ********
+ * 后台回传到前端的json对象必须有success属性
+ ************/
+
+    //示例，
+   $upload(
+           {
+               container:"good",//容器id,必填
+               url:"http://localhost:7499/Admin/Upload",//上传地址,必填
+               paragraphAble:true,//是滞断点续传
+               width:180,//宽度，默认为180
+               theme:"red"//主题，red,blue,orange,green,black。默认为白色
+           }
+   );
+
+
+</script>
+
+</body>
+</html>
